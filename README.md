@@ -16,6 +16,17 @@ This will prepend `brfs` to the list of transforms. You can use `--append` to ap
 
 [![NPM](https://nodei.co/npm/add-brfs.png)](https://nodei.co/npm/add-brfs/)
 
+
+```
+Usage:
+	add-brfs [opts]
+
+Options:
+  -h            show help message                     
+  -d, --dir     the directory to look for package.json
+  -a, --append  adds brfs at end of transform list    
+```
+
 ## License
 
 MIT, see [LICENSE.md](http://github.com/mattdesl/add-brfs/blob/master/LICENSE.md) for details.
