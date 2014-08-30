@@ -8,7 +8,7 @@ Adds brfs as a browserify transform to your package.json, if it isn't already li
 
 Then, in the directory of the module you want to use brfs:
 
-```add-brfs```
+`add-brfs`
 
 This will prepend `brfs` to the list of transforms. You can use `--append` to append it instead. You can also use `--dir` to specify a different directory than the current working directory to look for package.json.
 
