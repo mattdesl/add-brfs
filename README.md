@@ -2,7 +2,7 @@
 
 [![stable](http://badges.github.io/stability-badges/dist/stable.svg)](http://github.com/badges/stability-badges)
 
-Adds brfs as a browserify transform to your package.json, if it isn't already listed.
+Adds [brfs](https://github.com/substack/brfs) as a browserify transform to your package.json, if it isn't already listed.
 
 ```npm install add-brfs -g```
 
