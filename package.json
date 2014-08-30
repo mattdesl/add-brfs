@@ -1,0 +1,55 @@
+{
+  "name": "add-brfs",
+  "version": "1.0.0",
+  "description": "adds brfs as a browserify transform to your package.json",
+  "main": "./bin/add-brfs",
+  "license": "MIT",
+  "author": "Matt DesLauriers <dave.des@gmail.com>",
+  "dependencies": {
+    "chalk": "^0.5.1",
+    "yargs": "^1.3.1"
+  },
+  "devDependencies": {
+    "tape": "~2.13.2"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "testling": {
+    "files": "test.js",
+    "browsers": [
+      "ie/6..latest",
+      "chrome/22..latest",
+      "firefox/16..latest",
+      "safari/latest",
+      "opera/11.0..latest",
+      "iphone/6",
+      "ipad/6",
+      "android-browser/latest"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mattdesl/add-brfs.git"
+  },
+  "homepage": "https://github.com/mattdesl/add-brfs",
+  "bugs": {
+    "url": "https://github.com/mattdesl/add-brfs/issues"
+  },
+  "keywords": [
+    "add",
+    "brfs",
+    "browserify",
+    "transform",
+    "browserify-transforms",
+    "package",
+    "package.json",
+    "edit",
+    "cli",
+    "json"
+  ],
+  "preferGlobal": true,
+  "bin": {
+    "add-brfs": "./bin/add-brfs"
+  }
+}

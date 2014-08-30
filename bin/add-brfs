@@ -1,0 +1,54 @@
+#!/usr/bin/env node
+
+var chalk = require('chalk')
+var path = require('path')
+var fs = require('fs')
+var argv = require('yargs')
+        .alias('d', 'dir')
+        .help('h', 'show help message')
+        .describe('d', 'the directory to look for package.json')
+        .alias('a', 'append')
+        .describe('a', 'adds brfs at end of transform list')
+        .argv
+
+function addTransform(pkg, name) {
+    var browserify = pkg.browserify || {}
+    
+
+    var transform = browserify.transform || []
+    if (typeof transform === 'string') 
+        transform = [transform]
+
+    if (transform.indexOf(name) !== -1)
+        return
+
+    if (argv.append) 
+        transform.push(name)
+    else
+        transform.unshift(name)
+    
+    pkg.browserify = browserify
+    browserify.transform = transform
+}
+
+if (require.main === module) {
+    if (!argv.d)
+        argv.d = process.cwd()
+    var file = path.join(argv.d, 'package.json')
+
+    fs.readFile(file, 'utf8', function(err, data) {
+        if (err) {
+            console.error( chalk.red("Error reading package.json in "+file))
+            return
+        }
+        var pkg = JSON.parse(data)
+        addTransform(pkg, 'brfs')
+
+        fs.writeFile(file, JSON.stringify(pkg, undefined, 2), function(err) {
+            if (err)
+                console.error(chalk.red(err))
+            else
+                console.log(chalk.green("package.json updated"))
+        })
+    })
+}
