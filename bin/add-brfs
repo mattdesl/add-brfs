@@ -9,7 +9,11 @@ var argv = require('yargs')
         .describe('d', 'the directory to look for package.json')
         .alias('a', 'append')
         .describe('a', 'adds brfs at end of transform list')
+        .alias('i', 'install')
+        .describe('i', 'also install the latest brfs with --save-dev flag')
         .argv
+
+var npm = require('npm');
 
 function addTransform(pkg, name) {
     var browserify = pkg.browserify || {}
@@ -31,6 +35,20 @@ function addTransform(pkg, name) {
     browserify.transform = transform
 }
 
+function handleInstall() {
+    npm.load({
+        'save-dev': true
+    }, function(err) {
+        npm.commands.install(["brfs"], function(err, data) {
+            if (err)
+                console.log(chalk.red("Error installing brfs: " + err))
+        });
+        npm.on("log", function(message) {
+            console.log(message);
+        });
+    });
+}
+
 if (require.main === module) {
     if (!argv.d)
         argv.d = process.cwd()
@@ -49,6 +67,9 @@ if (require.main === module) {
                 console.error(chalk.red(err))
             else
                 console.log(chalk.green("package.json updated"))
+
+            if (argv.i)
+                handleInstall()
         })
     })
 }

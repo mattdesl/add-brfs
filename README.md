@@ -16,7 +16,6 @@ This will prepend `brfs` to the list of transforms. You can use `--append` to ap
 
 [![NPM](https://nodei.co/npm/add-brfs.png)](https://nodei.co/npm/add-brfs/)
 
-
 ```
 Usage:
 	add-brfs [opts]

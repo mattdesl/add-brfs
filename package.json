@@ -7,6 +7,7 @@
   "author": "Matt DesLauriers <dave.des@gmail.com>",
   "dependencies": {
     "chalk": "^0.5.1",
+    "npm": "^1.4.25",
     "yargs": "^1.3.1"
   },
   "devDependencies": {
@@ -51,5 +52,10 @@
   "preferGlobal": true,
   "bin": {
     "add-brfs": "./bin/add-brfs"
+  },
+  "browserify": {
+    "transform": [
+      "brfs"
+    ]
   }
 }
