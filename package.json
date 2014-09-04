@@ -1,6 +1,6 @@
 {
   "name": "add-brfs",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "adds brfs as a browserify transform to your package.json",
   "main": "./bin/add-brfs",
   "license": "MIT",
