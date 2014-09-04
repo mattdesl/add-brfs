@@ -8,9 +8,11 @@ Adds [brfs](https://github.com/substack/brfs) as a browserify transform to your 
 
 Then, in the directory of the module you want to use brfs:
 
-`add-brfs`
+`add-brfs --install`
 
-This will prepend `brfs` to the list of transforms. You can use `--append` to append it instead. You can also use `--dir` to specify a different directory than the current working directory to look for package.json.
+This will prepend `brfs` to the list of transforms, and the `--install` or `-i` flag will also install the `brfs` module and `--save` it as a dependency to your package.json.
+
+You can use `--append` to append it to the list of browserify transforms instead of prepend. You can also use `--dir` to specify a different directory than the current working directory to look for package.json (however, installing is still done in current directory).
 
 ## Usage
 
@@ -24,6 +26,7 @@ Options:
   -h            show help message                     
   -d, --dir     the directory to look for package.json
   -a, --append  adds brfs at end of transform list    
+  -i, --i       also install the latest brfs with --save flag
 ```
 
 ## License

@@ -37,7 +37,7 @@ function addTransform(pkg, name) {
 
 function handleInstall() {
     npm.load({
-        'save-dev': true
+        save: true
     }, function(err) {
         npm.commands.install(["brfs"], function(err, data) {
             if (err)
